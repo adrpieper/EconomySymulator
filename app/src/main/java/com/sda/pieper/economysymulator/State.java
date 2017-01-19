@@ -14,4 +14,8 @@ public class State {
         gold += economy.countGain();
         gold -= economy.countCost();
     }
+
+    public int getGold() {
+        return gold;
+    }
 }
