@@ -1,9 +1,12 @@
 package com.sda.pieper.economysymulator;
 
+import javax.inject.Inject;
+
 public class Army {
 
     private final Population population;
 
+    @Inject
     public Army(Population population) {
         this.population = population;
     }
