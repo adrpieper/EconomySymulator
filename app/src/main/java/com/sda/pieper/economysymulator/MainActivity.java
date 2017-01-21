@@ -18,11 +18,10 @@ public class MainActivity extends Activity {
         /*
         Ten kod tworzy nam potrzebne drzewo klas
          */
-        Population population = new Population();
-        Army army = new Army(population);
-        Buildings buildings = new Buildings();
-        Economy economy = new Economy(army, population, buildings);
-        final State state = new State(economy);
+
+        EconomyComponent economyComponent = DaggerEconomyComponent.create();
+        final State state = economyComponent.state();
+        Population population = economyComponent.population();
         population.setCount(1000);
 
         goldTextView.setText(Integer.toString(state.getGold()));
