@@ -15,12 +15,23 @@ public class MainActivity extends Activity {
 
         final TextView goldTextView = (TextView) findViewById(R.id.gold_text_view);
         Button button = (Button) findViewById(R.id.count_button);
+        /*
+        Ten kod tworzy nam potrzebne drzewo klas
+         */
+        Population population = new Population();
+        Army army = new Army(population);
+        Buildings buildings = new Buildings();
+        Economy economy = new Economy(army, population, buildings);
+        final State state = new State(economy);
+        population.setCount(1000);
 
+        goldTextView.setText(Integer.toString(state.getGold()));
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goldTextView.setText("1002");
+                state.countBalance();
+                goldTextView.setText(Integer.toString(state.getGold()));
             }
         });
     }
