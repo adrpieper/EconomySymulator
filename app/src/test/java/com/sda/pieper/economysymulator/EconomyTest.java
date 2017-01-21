@@ -28,7 +28,13 @@ public class EconomyTest {
         when(army.countCost()).thenReturn(2);
         when(buildings.countCost()).thenReturn(10);
         assert economy.countCost() == 12;
+    }
 
+    @Test
+    public void testGain() {
+        when(population.countTaxes()).thenReturn(100);
+        when(buildings.countProduction()).thenReturn(10);
+        assert economy.countGain() == 110;
     }
 
 
