@@ -1,7 +1,9 @@
 package com.sda.pieper.economysymulator;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
+@Singleton
 public class Army {
 
     private final Population population;
